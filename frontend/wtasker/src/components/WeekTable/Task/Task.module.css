@@ -1,0 +1,140 @@
+.task {
+    background-color: #2b2b2b;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение */
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.task.done {
+    background-color: #1e1e1e; /* Цвет для выполненных задач */
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Позволяет этому блоку занимать всё доступное пространство */
+    overflow: hidden; /* Скрывает переполнение */
+}
+
+.title {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    overflow-wrap: break-word; /* Разрешает перенос слов */
+    overflow: hidden; /* Скрывает переполнение */
+    white-space: normal; /* Позволяет перенос текста на новую строку */
+    margin-bottom: 10px; /* Отступ снизу */
+    text-overflow: ellipsis; /* Добавляет многоточие для обрезанного текста */
+}
+
+.titleContainer {
+    position: relative;
+    transition: border-bottom 0.3s ease; /* Плавный переход для нижней границы */
+    border-bottom: 1px solid transparent; /* Начальное состояние границы — прозрачное */
+}
+
+.titleContainer:hover {
+    border-bottom-color: #00ff85;
+    transition-delay: 0.2s; /* Задержка перед появлением нижней границы */
+}
+
+
+.checkbox {
+    appearance: none; /* Убираем стандартный вид */
+    width: 10px; /* Ширина */
+    height: 10px; /* Высота */
+    border-radius: 50%; /* Круглая форма */
+    background-color: #444; /* Темный фон по умолчанию */
+    cursor: pointer; /* Курсор указатель */
+    position: relative; /* Для псевдоэлемента */
+    transform: scale(1.2); /* Увеличиваем размер чекбокса */
+}
+
+.checkbox:checked {
+    background-color: #00ff85; /* Зеленый цвет, когда чекбокс отмечен */
+}
+
+.actions {
+    display: flex;
+    align-items: center; /* Выравнивание по центру */
+    gap: 10px;
+    margin-top: auto; /* Сдвигает вниз */
+}
+
+.deleteBtn {
+    background-color: transparent; /* Прозрачный фон */
+    border: none; /* Убираем границу */
+    color: #00ff85; /* Зеленый цвет текста */
+    cursor: pointer; /* Курсор указатель */
+    font-size: 14px; /* Размер шрифта для иконки */
+    transition: color 0.2s ease; /* Плавный переход цвета */
+}
+
+.deleteBtn:hover {
+    color: #00ffaa; /* Цвет текста при наведении */
+}
+
+.deleteBtn:active {
+    color: #00cc74; /* Цвет текста при нажатии */
+}
+
+.editBtn,
+.saveBtn {
+    background-color: #00ff85;
+    border: none;
+    padding: 5px 10px;
+    color: #121212;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.editBtn:hover,
+.saveBtn:hover {
+    background-color: #00ffaa; /* Эффект при наведении */
+}
+
+.input {
+    padding: 10px;
+    background-color: rgba(0,0,0,0);
+    color: #E6E6E6;
+    border: 0px solid;
+    border-bottom: 1px solid #444;
+    font-size: 16px;
+    width: 100%;
+}
+
+.input:focus {
+    border-bottom-color: #00ff85; /* Цвет нижней границы при фокусе */
+    outline: none; /* Убираем обводку при фокусе */
+}
+
+.editForm {
+    display: flex;
+    align-items: center; /* Выравнивание по центру */
+}
+
+.taskContent {
+    align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+    width: 100%;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: both;
+    min-height: 40px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+  
+.textarea[contenteditable]:empty::before {
+    content: "Placeholder still possible";
+    color: gray;
+}

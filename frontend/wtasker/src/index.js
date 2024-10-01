@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createState } from './business/state';
+import { createState } from './business/state/stateCreator';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const state = createState()

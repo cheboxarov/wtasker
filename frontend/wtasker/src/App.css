@@ -9,19 +9,26 @@ html, body {
     font-family: 'Courier New', Courier, monospace;
     background-color: #121212;
     color: #FFFFFF;
+}
+
+body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .console-loft {
-    width: 90%;
-    max-width: 1000px;
-    background-color: #1e1e1e;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
     padding: 20px;
-    border: 2px solid #444;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .header {
@@ -32,7 +39,7 @@ html, body {
 }
 
 .header h1 {
-    font-size: 24px;
+    font-size: 36px;
     color: #E6E6E6;
     letter-spacing: 1.5px;
 }
@@ -99,42 +106,74 @@ html, body {
     border-color: #00ff85;
 }
 
-.tasks-container {
-    max-height: 400px;
-    min-height: 400px;
-    overflow-y: auto;
-    margin-bottom: 20px;
+.week-container {
+    display: flex;
+    flex-grow: 1;
+    overflow-x: auto;
+    overflow-y: hidden; /* Отключить вертикальную прокрутку */
+    margin-top: 20px;
+    width: 100%; /* Заполнение ширины окна */
+}
+
+.week-column {
+    flex: 1;
+    min-width: 200px; /* Минимальная ширина столбца */
+    max-width: 300px; /* Максимальная ширина столбца */
     border: 1px solid #444;
+    background-color: #252525;
+    border-radius: 5px;
     padding: 10px;
+    margin: 5px;
+    display: flex; /* Используйте флексбокс для вертикального выравнивания */
+    flex-direction: column; /* Вертикальное расположение элементов */
+}
+
+.week-column-tasks {
+    flex-grow: 1; /* Занимает всё доступное пространство */
+    overflow-y: auto; /* Включает вертикальную прокрутку */
+    margin-top: 10px; /* Отступ сверху для отделения от заголовка */
+}
+
+.week-column-tasks::-webkit-scrollbar {
+    width: 6px; /* Ширина скроллбара */
+}
+
+/* Стиль для дорожки (фон скроллбара) */
+.week-column-tasks::-webkit-scrollbar-track {
+    background-color: #2b2b2b; /* Цвет фона трека */
     border-radius: 5px;
 }
 
-.todo-item {
-    background-color: #2b2b2b;
-    padding: 10px;
-    border-left: 4px solid #00ff85;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    word-wrap: break-word;
-    transition: all 0.2s ease;
-    span {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 600px;
-    }
+/* Стиль для ползунка (сам скролл) */
+.week-column-tasks::-webkit-scrollbar-thumb {
+    background-color: #00ff85; /* Зеленый цвет ползунка */
+    border-radius: 10px; /* Скругление ползунка */
+    border: 2px solid #2b2b2b; /* Добавляем границу, чтобы ползунок не сливался с фоном */
+}
+
+/* Стиль для ползунка при наведении */
+.week-column-tasks::-webkit-scrollbar-thumb:hover {
+    background-color: #00ffaa; /* Более яркий зеленый при наведении */
 }
 
 
-.todo-item:hover {
-    border-left: 4px solid #00ffaa;
+.week-column h3 {
+    color: #00ff85;
+    text-align: center;
+}
+
+.task {
     background-color: #383838;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: white;
+    cursor: grab;
+    transition: background-color 0.2s ease;
 }
 
-.todo-title, .todo-desc, .todo-status, .todo-backlog {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
+.task:hover {
+    background-color: #444;
 }
 
 .inputs {
@@ -168,6 +207,7 @@ html, body {
 }
 
 .add-button {
+    margin-bottom: 10px;
     padding: 10px;
     background-color: #00ff85;
     color: #121212;
@@ -191,4 +231,11 @@ html, body {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ff5757;
+}
+
+.leftside {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-right: 10px;
 }

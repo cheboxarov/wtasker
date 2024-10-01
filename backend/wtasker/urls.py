@@ -20,7 +20,6 @@ from task.urls import router as task_router
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include([
