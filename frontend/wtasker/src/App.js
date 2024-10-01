@@ -13,15 +13,6 @@ function App({ state }) {
     const todos = state.todos.all;
     const inputs = state.todos.inputs
 
-    const moveTask = (item, newDate) => {
-        if (item.due_date === newDate)
-            return
-        const newTodo = item;
-        newTodo.due_date = newDate;
-        newTodo.in_backlog = false;
-        state.todos.update(newTodo)
-    };
-
     const daysOfWeek = getCurrentWeek()
     
     return (
@@ -35,12 +26,12 @@ function App({ state }) {
             {/* Добавление задачи */}
             <AddMenu state={state}></AddMenu>
             <div className='week-container'>
-                <WeekColumn state={state} day={null} todos={todos.value} moveTask={moveTask} />
+                <WeekColumn state={state} day={null} todos={todos.value}/>
             </div>
         </div>
         <div className="week-container">
             {daysOfWeek.map((day) => (
-            <WeekColumn state={state} key={day} day={day} todos={todos.value} moveTask={moveTask} />
+            <WeekColumn state={state} key={day} day={day} todos={todos.value}/>
             ))}
 
 

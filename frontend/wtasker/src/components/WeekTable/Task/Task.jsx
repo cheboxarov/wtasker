@@ -29,7 +29,7 @@ const Task = ({ state, todo }) => {
     };
 
     return (
-        <div ref={drag} className={`${styles.task} ${isDone ? styles.done : ""}`}>
+        <div ref={isEditing ? null : drag} className={`${styles.task} ${isDone ? styles.done : ""}`}>
             <div className={styles.taskContent}>
                     {isEditing ? (<><span 
                         role="textbox"
