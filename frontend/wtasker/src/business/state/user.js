@@ -4,7 +4,7 @@ function createUserState() {
     const user = {
         me: {
             username: signal("username"),
-            accessToken: signal("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4Mjk0NTc1LCJpYXQiOjE3Mjc2ODk3NzUsImp0aSI6IjVmYTMwMGMwNjI3ZTQyOTc5YWViNzdkYjlhZWQ4NGY2IiwidXNlcl9pZCI6MX0.kZQjqCGCZEjjsrRGmCSv-nAGDofYW1IKpPqWLMMAdNk")
+            accessToken: signal("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4NDMxOTI4LCJpYXQiOjE3Mjc4MjcxMjgsImp0aSI6ImJlZTJkZDM5ZjA2ZjQ5Zjk4NTJkMzQ3MzkyOWY5MTAwIiwidXNlcl9pZCI6MX0.fTE5KwZXxwGl6CFPcCvFjp6Jq2wdvHm9WiKSHRCP9GM")
         }
     }
     return user

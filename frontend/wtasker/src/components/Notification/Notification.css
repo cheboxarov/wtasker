@@ -1,0 +1,19 @@
+/* styles.css */
+.notification {
+    position: fixed;
+    top: 20px; /* Отступ сверху */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем по горизонтали */
+    background-color: #00ff85; /* Цвет фона уведомления */
+    color: #121212; /* Цвет текста */
+    padding: 15px 25px; /* Отступы */
+    border-radius: 5px; /* Скругление углов */
+    z-index: 1000; /* Убедитесь, что уведомление поверх других элементов */
+    opacity: 0; /* Начальная непрозрачность */
+    transition: opacity 0.5s ease, top 0.5s ease; /* Плавный переход */
+}
+
+.notification.show {
+    opacity: 1; /* Уведомление становится видимым */
+    top: 50px; /* Сдвигаем вниз для видимости */
+}

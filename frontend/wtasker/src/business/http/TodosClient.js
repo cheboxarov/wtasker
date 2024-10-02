@@ -1,4 +1,7 @@
-const MANY_URL = "http://localhost/api/v1/tasks"
+import { BaseUrl } from "./config"
+
+const MANY_URL = `${BaseUrl}/api/v1/tasks`
+
 function instanceUrl(id) {
     return `${MANY_URL}/${id}`
 }

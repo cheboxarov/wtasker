@@ -6,6 +6,7 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import WeekColumn from './components/WeekTable/Column/Column';
 import AddMenu from './components/WeekTable/AddMenu/AddMenu';
+import Notification from './components/Notification/Notification';
 
 function App({ state }) {
     useSignals();
@@ -17,6 +18,7 @@ function App({ state }) {
     
     return (
     <DndProvider backend={HTML5Backend}>
+        <Notification message={"Это тестовая версия!"}></Notification>
     <div className="console-loft">
         <div className="leftside">
             <div className="header">
