@@ -5,16 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createState } from './business/state/stateCreator';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-const state = createState()
-window.state = state
-state.todos.http_get()
-console.log(state)
-root.render(
-  <React.StrictMode>
-    <App state={state} />
-  </React.StrictMode>
-);
+const state = createState(() => {
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+    <React.StrictMode>
+        <App state={state} />
+    </React.StrictMode>
+    );
+})
+document.state = state
+state.render()
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

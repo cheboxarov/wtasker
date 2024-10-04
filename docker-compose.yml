@@ -9,8 +9,8 @@ services:
   django:
     restart: always
     build: ./backend
-    #command: sh -c "gunicorn --bind 0.0.0.0:8000 service.wsgi:application --workers 10"
-    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    command: sh -c "gunicorn --bind 0.0.0.0:8000 service.wsgi:application --workers 10"
+    #command: sh -c "python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./backend:/backend
       - static_data:/backend/static

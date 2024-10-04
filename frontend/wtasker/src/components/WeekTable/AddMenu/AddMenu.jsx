@@ -1,9 +1,16 @@
 import { useSignals } from "@preact/signals-react/runtime"
+import { useNavigate } from "react-router-dom"
 
 const AddMenu = ({ state }) => {
     useSignals()
+    const navigate = useNavigate()
     const inputs = state.todos.inputs
     const addTodo = () => {
+
+        if (!inputs.titleInput.value || inputs.titleInput.value > 100) {
+            return
+        }
+
         state.todos.add({
             title: inputs.titleInput.value,
             description: inputs.descInput.value,
@@ -30,7 +37,11 @@ const AddMenu = ({ state }) => {
         value={inputs.descInput}
         onChange={(el) => inputs.descInput.value = el.target.value}
         /> */}
-        <button className="add-button" onClick={addTodo}>Add Task</button>
+        <div className="add-button" onClick={addTodo}>Add Task</div>
+        <div className="add-button" onClick={() => {
+            state.user.logout()
+            state.render()
+        }}>Log out</div>
     </div>)
 }
 

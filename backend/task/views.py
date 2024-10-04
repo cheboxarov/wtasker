@@ -9,9 +9,9 @@ class TaskViewSet(ModelViewSet):
     queryset = Task.objects.select_related("user").prefetch_related("tags").all()
     #queryset = Task.objects.all()
     serializer_class = TaskDetailSerializer 
-    #permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
 
-    # def get_queryset(self):
-    #     return super().get_queryset().filter(user=self.request.user)
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
     

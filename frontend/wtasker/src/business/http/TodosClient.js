@@ -21,6 +21,8 @@ export function getTodos() {
     fetch(MANY_URL, {
         headers: getHeaders(this)
     }).then(response => {
+        if (!response.ok)
+            return
         response.json().then(data => {
             data.forEach(todo => {
                 this.add(todo)

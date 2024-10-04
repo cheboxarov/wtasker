@@ -17,25 +17,25 @@
 .info {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Позволяет этому блоку занимать всё доступное пространство */
-    overflow: hidden; /* Скрывает переполнение */
+    flex-grow: 1;
+    gap: 10px;
+    overflow: hidden;
 }
 
 .title {
-    margin-left: 10px;
     font-size: 18px;
     font-weight: 500;
-    overflow-wrap: break-word; /* Разрешает перенос слов */
-    overflow: hidden; /* Скрывает переполнение */
-    white-space: normal; /* Позволяет перенос текста на новую строку */
-    margin-bottom: 10px; /* Отступ снизу */
-    text-overflow: ellipsis; /* Добавляет многоточие для обрезанного текста */
+    overflow-wrap: break-word;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
 }
 
 .titleContainer {
     position: relative;
     transition: border-bottom 0.3s ease; /* Плавный переход для нижней границы */
     border-bottom: 1px solid transparent; /* Начальное состояние границы — прозрачное */
+    margin-bottom: 5px;
 }
 
 .titleContainer:hover {
@@ -63,7 +63,7 @@
     display: flex;
     align-items: center; /* Выравнивание по центру */
     gap: 10px;
-    margin-top: auto; /* Сдвигает вниз */
+    margin-bottom: 5px;
 }
 
 .deleteBtn {
@@ -90,6 +90,7 @@
     padding: 5px 10px;
     color: #121212;
     border-radius: 5px;
+    text-align: center;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
@@ -131,10 +132,16 @@
     resize: both;
     min-height: 40px;
     line-height: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
   
 .textarea[contenteditable]:empty::before {
     content: "Placeholder still possible";
     color: gray;
+}
+
+.task.dragging {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1); /* Увеличение таски во время перетаскивания */
+    transition: transform 0.2s ease;
 }
