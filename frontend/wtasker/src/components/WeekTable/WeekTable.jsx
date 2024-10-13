@@ -21,7 +21,7 @@ function WeekTable({ state }) {
         <div className="console-loft">
             <div className="leftside">
                 <div className="header">
-                    <h1>Popka Manager</h1>
+                    <h1>Task Manager</h1>
                 </div>
                 <AddMenu state={state}></AddMenu>
                 <div className='week-container'>

@@ -8,6 +8,9 @@ class Task(models.Model):
     is_done = models.BooleanField(default=False, verbose_name="Выполнена")
     due_date = models.DateField(verbose_name="Дедлайн", null=True, blank=True)
     in_backlog = models.BooleanField(default=True, verbose_name="В бэклоге")
-    user = models.ForeignKey("auth.User", on_delete=models.CASCADE)
-    tags = models.ManyToManyField("task_tags.TaskTag")
+    user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Юзер")
+    tags = models.ManyToManyField("task_tags.TaskTag", verbose_name="Теги")
 
+    class Meta:
+        verbose_name = "Задача"
+        verbose_name_plural = "Задачи"

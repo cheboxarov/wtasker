@@ -13,7 +13,7 @@ const state = createState(() => {
     </React.StrictMode>
     );
 })
-document.state = state
+window.state = state
 state.render()
 
 // If you want to start measuring performance in your app, pass a function

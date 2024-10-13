@@ -23,16 +23,14 @@ const RegistrationWindow = ({ state }) => {
             password2: password2.value
         }
         state.user.register(registrationData, () => {
-            console.log("SUCCESS!")
             navigate("/login")
         })
     }
 
     return (
         <div className={styles.wrapper}>
-            <Notification message={"ПИЗДА"} />
             <div className={styles.loginContainer}>
-                <h2 className={styles.title}>ПИЗДА РЕГИСТРИРУЙСЯ</h2>
+                <h2 className={styles.title}>Registration</h2>
                 <div className={styles.inputs}>
                     <input value={login.value} onChange={e => login.value = e.target.value} type="text" placeholder="Username" className={styles.inputField}/>
                     <input value={email.value} onChange={e => email.value = e.target.value} type="text" placeholder="Email" className={styles.inputField}/>

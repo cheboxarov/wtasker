@@ -53,6 +53,10 @@ export function addTodo(todo) {
 export function updateTodo(todo) {
     const todos = this
     todos.serverError.value = null 
+    const lastTodos = todos.all.value
+    todos.set(
+        todos.all.value.map(_todo => _todo.id === todo.id ? todo : _todo)
+    );
     fetch(instanceUrl(todo.id), {
         method: "PATCH",
         headers: getHeaders(this),
@@ -68,6 +72,7 @@ export function updateTodo(todo) {
                 console.log("Ошибка при обновлении таски")
                 todos.http_get()
                 console.log(data)
+                todos.set(lastTodos)
             }
         })
     })

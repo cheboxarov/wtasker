@@ -9,10 +9,11 @@ class EmbTaskTagsSerializer(serializers.ModelSerializer):
         model = TaskTag
         fields = "__all__"
         extra_kwargs = {
-            'user': {'required': False},  # Указываем, что поле user не обязательно
-            'content': {'required': False},  # Указываем, что поле content не обязательно
-            'color': {'required': False}  # Указываем, что поле color не обязательно
+            'user': {'required': False},
+            'content': {'required': False},
+            'color': {'required': False}
         }
+
 
 class TaskTagsSerializer(serializers.ModelSerializer):
 
@@ -22,7 +23,6 @@ class TaskTagsSerializer(serializers.ModelSerializer):
         fields = "__tags__"
         read_only_fields = ("user",)
 
-    
     def create(self, validated_data):
         validated_data["user"] = self.context["request"].user
         return super().create(validated_data)

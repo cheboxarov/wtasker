@@ -15,7 +15,6 @@ class TaskDetailSerializer(serializers.ModelSerializer):
         read_only_fields = ["id", "user"]
 
     def validate(self, attrs):
-        # Удаляем tags из attrs, чтобы избежать их проверки
         attrs.pop('tags', None)  
         return attrs
 

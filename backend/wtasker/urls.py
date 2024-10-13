@@ -19,12 +19,16 @@ from django.urls import path, include
 from task.urls import router as task_router
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from registration.views import RegisterView
+from mail_confirmation.urls import urlpatterns as mail_confirmation_urls
+from users.urls import urlpatterns as users_urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include([
         path('', include(task_router.urls)),
+        path('', include(mail_confirmation_urls)),
+        path('', include(users_urls)),
         path('register/', RegisterView.as_view(), name="registration"),
         path('token/', TokenObtainPairView.as_view(), name="token_obtain_pair"),
         path('token/refresh', TokenRefreshView.as_view(), name="token_refresh"),

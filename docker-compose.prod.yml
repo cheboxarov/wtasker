@@ -11,8 +11,7 @@ services:
   django:
     restart: always
     build: ./backend
-    #command: sh -c "gunicorn --bind 0.0.0.0:8000 wtasker.wsgi:application --workers 10"
-    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    command: sh -c "gunicorn --bind 0.0.0.0:8000 wtasker.wsgi:application --workers 10"
     volumes:
       - ./backend:/backend
       - static_data:/backend/static
@@ -23,11 +22,11 @@ services:
     environment:
        <<: *environment-defaults
   
-  # frontend:
-  #   restart: always
-  #   build: ./frontend/wtasker
-  #   expose:
-  #     - 3000
+  frontend:
+    restart: always
+    build: ./frontend/wtasker
+    expose:
+      - 3000
 
   db:
     image: postgres:16-alpine
