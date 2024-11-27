@@ -35,7 +35,7 @@ const Task = ({ state, todo }) => {
                         }}
                         className={styles.checkbox}
                     />
-                    <button onClick={() => state.todos.delete(todo)} className={styles.deleteBtn}>🗑️</button>
+                    <button onClick={() => state.todos.delete(todo)} className={styles.deleteBtn}>...</button>
                     {isEditing && (
                         <div onClick={() => {
                             setIsEditing(false);

@@ -110,12 +110,13 @@ body {
     display: flex;
     flex-grow: 1;
     overflow-x: auto;
-    overflow-y: hidden; /* Отключить вертикальную прокрутку */
+    overflow-y: hidden;
     margin-top: 20px;
-    width: 100%; /* Заполнение ширины окна */
+    width: 100%;
 }
 
 .week-column {
+    user-select: none;
     flex: 1;
     min-width: 200px; /* Минимальная ширина столбца */
     max-width: 300px; /* Максимальная ширина столбца */

@@ -4,14 +4,14 @@ version: "3.9"
 x-environment-defaults: &environment-defaults
   DATABASE_URL: "postgresql://django:django@db:5432/django"
   DEBUG: 1
-  EMAIL_HOST_USER: "wlovemrock@gmail.com"
-  EMAIL_HOST_PASSWORD: "mama338mama"
 
 services:
   django:
     restart: always
     build: ./backend
     command: sh -c "gunicorn --bind 0.0.0.0:8000 wtasker.wsgi:application --workers 10"
+    env_file:
+      - .env
     volumes:
       - ./backend:/backend
       - static_data:/backend/static
@@ -64,6 +64,8 @@ services:
       - 80
     environment:
       <<: *environment-defaults
+    env_file:
+      - .env
   
   nginx:
     image: nginx:1.19.8-alpine

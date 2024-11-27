@@ -62,6 +62,7 @@
 .actions {
     display: flex;
     align-items: center; /* Выравнивание по центру */
+    justify-content: space-between;
     gap: 10px;
     margin-bottom: 5px;
 }
@@ -71,7 +72,7 @@
     border: none; /* Убираем границу */
     color: #00ff85; /* Зеленый цвет текста */
     cursor: pointer; /* Курсор указатель */
-    font-size: 14px; /* Размер шрифта для иконки */
+    font-size: 20px; /* Размер шрифта для иконки */
     transition: color 0.2s ease; /* Плавный переход цвета */
 }
 

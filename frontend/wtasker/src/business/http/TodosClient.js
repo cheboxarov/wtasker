@@ -9,12 +9,13 @@ function instanceUrl(id) {
 
 const getHeaders = (todos) => {
     const token = todos.userState.me.accessToken
+    todos.userState.init()
     const headers = {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
     }
     return headers
-}
+}  
 
 export function getTodos() {
     this.all.value = []

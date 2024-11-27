@@ -1,6 +1,7 @@
 import { signal } from "@preact/signals-react"
 import Cookies from 'js-cookie';
-import { login, register } from "../http/userClient";
+import { login, register, refresh } from "../http/userClient";
+import {jwtDecode} from "jwt-decode"
 
 function createUserState() {
     const user = {
@@ -20,6 +21,12 @@ function createUserState() {
             this.me.refreshToken = Cookies.get("refresh_token")
             if (this.me.accessToken) {
                 this.me.authentificated = true
+                const decodedToken = jwtDecode(this.me.accessToken)
+                const currentTime = Date.now() / 1000
+
+                if (decodedToken.exp < currentTime) {
+                    refresh(this)
+                }
             }
         },
 

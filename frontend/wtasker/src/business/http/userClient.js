@@ -37,6 +37,25 @@ export function login(login, password, onSuccess) {
     })
 }
 
+export async function refresh(user) {
+    const refreshToken = user.me.refreshToken
+    const response = await fetch(`${BaseUrl}/api/v1/token/refresh`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            refresh: refreshToken
+        })
+    })
+    console.log("refresh", response)
+    if (response.ok) {
+        const data = await response.json()
+        Cookies.set("access_token", data.access)
+        Cookies.set("refresh_token", data.refresh)
+        user.init()
+    }
+}
 
 export function register(registrationData, onSuccsess = () => {}) {
     const user = this

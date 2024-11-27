@@ -1,0 +1,4 @@
+.hideShowTasksButton {
+    cursor: pointer;
+    user-select: none;
+}

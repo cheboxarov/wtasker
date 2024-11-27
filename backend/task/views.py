@@ -7,7 +7,6 @@ from rest_framework.permissions import IsAuthenticated
 class TaskViewSet(ModelViewSet):
 
     queryset = Task.objects.select_related("user").prefetch_related("tags").all()
-    #queryset = Task.objects.all()
     serializer_class = TaskDetailSerializer 
     permission_classes = [IsAuthenticated]
 

@@ -9,8 +9,13 @@ class Task(models.Model):
     due_date = models.DateField(verbose_name="Дедлайн", null=True, blank=True)
     in_backlog = models.BooleanField(default=True, verbose_name="В бэклоге")
     user = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Юзер")
-    tags = models.ManyToManyField("task_tags.TaskTag", verbose_name="Теги")
+    tags = models.ManyToManyField("task_tags.TaskTag", verbose_name="Теги", null=True, blank=True)
 
     class Meta:
         verbose_name = "Задача"
         verbose_name_plural = "Задачи"
+
+    def __str__(self):
+        if len(self.title) > 10:
+            return f"{self.title[:10]}..."
+        return self.title
