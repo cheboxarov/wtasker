@@ -28,7 +28,7 @@ const LoginWindow = ({ state }) => {
 
     return (
         <div className={styles.wrapper}>
-            <Notification message={"login: admin password: admin"} />
+            <Notification message={"login: admin\n password: admin"} />
             <div className={styles.loginContainer}>
                 <h2 className={styles.title}>Hello World!</h2>
                 <div className={styles.inputs}>
@@ -36,8 +36,8 @@ const LoginWindow = ({ state }) => {
                     <input value={password.value} onChange={e => password.value = e.target.value} type="password" placeholder="Password" className={styles.inputField}/>
                 </div>
                 <div onClick={loginHandler} className={state.user.me.authError != "" ? styles.loginButtonError : styles.loginButton}>{state.user.me.authError != "" ? state.user.me.authError : "Login"}</div>
-                
-                <div>Нет аккаунта?<span onClick={registerHandler} styles={"color: #00ff85;"}>Зарегистрироваться</span></div>
+                <br />
+                <div>Нет аккаунта?<span onClick={registerHandler} className={styles.registerButton}>Зарегистрироваться</span></div>
             </div>
         </div>
     );

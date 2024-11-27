@@ -68,7 +68,6 @@ export function register(registrationData, onSuccsess = () => {}) {
         body: JSON.stringify(registrationData)
     }).then(response => {
         response.json(data => {
-            console.log(data)
             if (response.ok) {
                 onSuccsess()
             }

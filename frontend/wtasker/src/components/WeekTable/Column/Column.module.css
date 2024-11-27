@@ -1,4 +1,9 @@
 .hideShowTasksButton {
     cursor: pointer;
     user-select: none;
+    color: #00ff85;
+}
+
+.hideShowTasksButton:hover {
+    color: #00ffaa;
 }

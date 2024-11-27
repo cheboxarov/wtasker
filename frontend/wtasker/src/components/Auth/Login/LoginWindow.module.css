@@ -97,3 +97,12 @@ html, body {
 .loginButton:hover {
     background-color: #00ffaa;
 }
+
+.registerButton {
+    cursor: pointer;
+    color: #00ff85;
+}
+
+.registerButton:hover {
+    color: #00ffaa;
+}

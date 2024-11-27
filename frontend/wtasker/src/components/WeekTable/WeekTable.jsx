@@ -24,7 +24,7 @@ function WeekTable({ state }) {
                     <h1>Task Manager</h1>
                 </div>
                 <AddMenu state={state}></AddMenu>
-                <div className='week-container'>
+                <div className='new-tasks-cont'>
                     <WeekColumn state={state} day={null} todos={todos.value}/>
                 </div>
             </div>

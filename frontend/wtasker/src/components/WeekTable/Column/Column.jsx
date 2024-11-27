@@ -39,10 +39,10 @@ const WeekColumn = ({ state, day, todos }) => {
                 <Task state={state} key={todo.id} todo={todo} />
             ))}
         </div>
-        { todosInColumn.filter(todo => todo.is_done).length > 0 && (isDoneShowing ? (
-            <div onClick={() => { setIsDoneShowing(false) }} className={styles.hideShowTasksButton}>hide done tasks</div>
+        { (todosInColumn.filter(todo => todo.is_done).length > 0 || !isDoneShowing ) && (isDoneShowing ? (
+            <div onClick={() => { setIsDoneShowing(false) }} className={styles.hideShowTasksButton}>Hide done tasks</div>
         ) : (
-            <div onClick={() => { setIsDoneShowing(true) }} className={styles.hideShowTasksButton}>show done tasks</div>
+            <div onClick={() => { setIsDoneShowing(true) }} className={styles.hideShowTasksButton}>Show done tasks</div>
         ))}
       </div>
     );
